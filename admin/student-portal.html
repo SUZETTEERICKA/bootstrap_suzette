@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="MarSU Students Management" />
+    <meta name="author" content="Marinduque State University" />
+    <title>Student Portal - MarSu Admin</title>
+    <link href="../css/style.min.css" rel="stylesheet" />
+    <link href="../css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/bootstrap-icons.css">
+    <script src="../js/all.js" crossorigin="anonymous"></script>
+    <style>
+        :root {
+            --apple-green: #4CAF50;
+            --apple-green-dark: #388E3C;
+        }
+        .sb-topnav {
+            background-color: var(--apple-green) !important;
+        }
+        .btn-primary {
+            background-color: var(--apple-green);
+            border-color: var(--apple-green);
+        }
+        .btn-primary:hover {
+            background-color: var(--apple-green-dark);
+            border-color: var(--apple-green-dark);
+        }
+        .card {
+            border: none;
+            box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+        .student-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--apple-green);
+        }
+        .section-title {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--apple-green-dark);
+        }
+    </style>
+</head>
+<body class="sb-nav-fixed">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark">
+        <!-- Navbar Brand-->
+        <a class="navbar-brand ps-3" href="../index.html">
+            <img src="../assets/img/MARSU LOGO.png" alt="MSU Logo" height="40" class="me-2">
+            MarSu Admin
+        </a>
+        <!-- Sidebar Toggle-->
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+        <!-- Navbar Search-->
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+            <div class="input-group">
+                <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+            </div>
+        </form>
+        <!-- Navbar-->
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-user fa-fw"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#!">Profile Settings</a></li>
+                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li><a class="dropdown-item" href="../index.html">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <div class="sb-sidenav-menu-heading">Main</div>
+                        <a class="nav-link" href="dashboard.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Dashboard
+                        </a>
+                        <div class="sb-sidenav-menu-heading">Academic</div>
+                        <a class="nav-link" href="students.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-graduation-cap"></i></div>
+                            Students
+                        </a>
+                        <a class="nav-link" href="faculty.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                            Faculty
+                        </a>
+                        <a class="nav-link" href="courses.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div>
+                            Courses
+                        </a>
+                        <div class="sb-sidenav-menu-heading">Learning</div>
+                        <a class="nav-link" href="javascript-guide.html">
+                            <div class="sb-nav-link-icon"><i class="fab fa-js"></i></div>
+                            JavaScript Guide
+                        </a>
+                        <a class="nav-link" href="javascript-playground.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-code"></i></div>
+                            JavaScript Playground
+                        </a>
+                        <div class="sb-sidenav-menu-heading">BSIS STUDENTS</div>
+                        <a class="nav-link active" href="student-portal.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-user-graduate"></i></div>
+                            Student Portal
+                        </a>
+                    </div>
+                </div>
+                <div class="sb-sidenav-footer">
+                    <div class="small">Logged in as:</div>
+                    Administrator
+                </div>
+            </nav>
+        </div>
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="page-header">
+                        <div class="container-fluid px-4">
+                            <div class="row align-items-center">
+                                <div class="col-sm-6">
+                                    <h1 class="mt-4">Student Portal</h1>
+                                    <ol class="breadcrumb mb-4">
+                                        <li class="breadcrumb-item"><a href="dashboard.html">Dashboard</a></li>
+                                        <li class="breadcrumb-item active">Student Portal</li>
+                                    </ol>
+                                </div>
+                    <div class="container-fluid px-4 my-4">
+                       
+                        <!-- PROFILE INFO -->
+                            <div class="card mb-4">
+                            <div class="card-body d-flex align-items-center justify-content-between"> 
+                                
+                                <div class="d-flex align-items-center">
+                                <img src="/Bootstrap_Template-main/assets/img/zet.jpg" class="rounded-circle me-4" style="width: 100px; height: 100px; object-fit: cover;">
+                                <div>
+                                    <h4 class="mb-0">Ma. Suzette Ericka P. Posas</h4>
+                                    <p class="text-muted mb-1">Student ID: 23S0095</p>
+                                    <p class="text-muted mb-0">BS Information Systems | 3rd Year</p>
+                                </div>
+                                </div>
+
+                                <!-- UPDATE BTN -->
+                                <div>
+                                <button class="btn btn-primary">
+                                    <i class="fas fa-edit"></i> Update Profile
+                                </button>
+                                </div>
+
+                            </div>
+                            </div>
+
+                        <!-- GRADES -->
+                        <div class="card mb-4">
+                            <div class="card-header">
+                            <i class="fas fa-book-open me-2"></i> Grades
+                            </div>
+                            <div class="card-body">
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Courses</th>
+                                    <th>Midterm</th>
+                                    <th>Finals</th>
+                                    <th>Final Grade</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>Business Intelligence</td>
+                                    <td>1.70</td>
+                                    <td>1.50</td>
+                                    <td>1.60</td>
+                                </tr>
+                                <tr>
+                                    <td>Database Systems</td>
+                                    <td>1.70</td>
+                                    <td>1.60</td>
+                                    <td>1.80</td>
+                                </tr>
+                                <tr>
+                                    <td>Web Development</td>
+                                    <td>1.50</td>
+                                    <td>1.60</td>
+                                    <td>1.40</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            </div>
+                        </div>
+
+                        <!-- COURSES -->
+                        <div class="card mb-4">
+                            <div class="card-header">
+                            <i class="fas fa-list me-2"></i> Enrolled Courses
+                            </div>
+                            <div class="card-body">
+                            <ul class="list-group">
+                                <li class="list-group-item">Business Intelligence</li>
+                                <li class="list-group-item">Database Systems</li>
+                                <li class="list-group-item">Web Development</li>
+                            </ul>
+                            </div>
+                        </div>
+
+                        <!-- PAYMENTS -->
+                        <div class="card mb-4">
+                            <div class="card-header">
+                            <i class="fas fa-wallet me-2"></i> Payments & Balance
+                            </div>
+                            <div class="card-body">
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Particulars</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>November 30, 2025</td>
+                                    <td>Tuition Fee</td>
+                                    <td>₱5,000</td>
+                                    <td><span class="badge bg-success">Paid</span></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            </div>
+                        </div>
+
+                        <!-- ANNOUNCEMENTS -->
+                        <div class="card mb-4">
+                            <div class="card-header">
+                            <i class="fas fa-bullhorn me-2"></i> Announcements
+                            </div>
+                            <div class="card-body">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                <strong>Sept 20, 2025:</strong> Midterm Exams will start on Sept 24.
+                                </li>
+                                <li class="list-group-item">
+                                <strong>Sept 30, 2025:</strong> Deadline for missing activities.
+                                </li>
+                            </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </main>
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; Marinduque State University 2025</div>
+                        <div>
+                            <a href="#">Privacy Policy</a>
+                            &middot;
+                            <a href="#">Terms &amp; Conditions</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="../js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="../js/scripts.js"></script>
+</body>
+</html>
